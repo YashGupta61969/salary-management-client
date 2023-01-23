@@ -1,10 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminSignUp from "./pages/admin/AdminSignUp";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+    <Routes>
+      <Route path="/" element={<AdminLogin/>}/>
+      <Route path="/signup" element={<AdminSignUp/>}/>
+    </Routes>
+
     </div>
   );
 }
