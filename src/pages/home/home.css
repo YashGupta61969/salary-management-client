@@ -1,0 +1,36 @@
+.main{
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar{
+    max-width: 30%;
+    min-width: 25rem;
+    height: 100vh;
+    padding-left: 1rem;
+    padding-top: 1.4rem;
+    background: rgb(54, 54, 54);
+    color: white;
+    align-self: flex-start;
+}
+
+.dashboardLink{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid black;
+}
+
+.sidebarLinks{
+    margin-top: 1.5rem;
+}
+
+.sidebarLinks h1{
+    font-weight: 500;
+}
+
+.dashboardLink, .sidebarLinks{
+    cursor: pointer;
+}

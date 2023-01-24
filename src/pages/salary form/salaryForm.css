@@ -1,0 +1,39 @@
+.salaryFormContainer{
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.salaryFormContainer button{
+    background-color: rgb(75, 75, 252);
+    margin-bottom: 3rem;
+    width: 100%;
+    padding:1.4rem;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.formInput{
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.formInput h4{
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.salaryFormContainer select, input{
+    width: 100%;
+    padding: 1rem 5px;
+    font-size: 1.5rem
+}
+
+.salaryFormContainer option{
+    font-size: 1.5rem;
+}
