@@ -8,13 +8,13 @@ import Home from "./pages/home/Home";
 import { login } from "./store/slices/adminSlice";
 import Salary from "./pages/salary/Salary";
 import Employee from "./pages/employee/Employee";
-import SalaryForm from "./pages/salary form/SalaryForm";
+import SalaryForm from "./pages/salary/SalaryForm";
+import EmployeeForm from "./pages/employee/EmployeeForm";
 
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const data = JSON.parse(localStorage.getItem("admin"));
-  const { admin } = useSelector((state) => state.admin);
 
   useEffect(() => {
     if (data) {
@@ -32,6 +32,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/salaries" element={<Salary />} />
           <Route path="/employees" element={<Employee />} />
+          <Route path="/employee-form" element={<EmployeeForm />} />
           <Route path="/salary-form" element={<SalaryForm />} />
         </Route>
         <Route path="/login" element={<AdminLogin />} />

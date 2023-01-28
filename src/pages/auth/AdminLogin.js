@@ -20,9 +20,13 @@ function AdminLogin() {
         email, password
       })
     }).then(res=>res.json()).then(res=>{
-      localStorage.setItem('admin',JSON.stringify(res))
-      dispatch(login(res))
-      navigate('/')
+      if(res.status !== 'error'){
+        localStorage.setItem('admin',JSON.stringify(res))
+        dispatch(login(res))
+        navigate('/')
+      }else{
+        alert(res.message)
+      }
     }).catch(err=>console.log(err))
   }
 

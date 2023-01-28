@@ -69,10 +69,10 @@
     font-weight: 500;
     font-size: 1.8rem;
     border-radius: 6px;
-    background: rgb(247, 247, 247);
+    background: rgb(243, 243, 243);
     cursor: pointer;
     border: 0;
-    box-shadow: 0 0 3px;
+    box-shadow: 0 0 2px ;
 }
 
 .createAnAccountBtn:hover{
