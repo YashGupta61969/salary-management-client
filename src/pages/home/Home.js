@@ -15,12 +15,20 @@ function Home() {
           <h1>Employees</h1>
         </div>
 
-        <div className="sidebarLinks" onClick={() => navigate("/salaries")}>
+        <div
+          className="sidebarLinks"
+          onClick={() =>
+            navigate({
+              pathname: "/salaries",
+              search: "?page=1",
+            })
+          }
+        >
           <h1>Salaries</h1>
         </div>
       </div>
 
-      <Outlet/>
+      <Outlet />
     </div>
   );
 }

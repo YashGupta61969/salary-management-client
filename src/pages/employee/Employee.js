@@ -1,40 +1,60 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Employee() {
+  const { token } = useSelector((state) => state.admin.admin);
+  const navigate = useNavigate();
+
+  const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    token &&
+      fetch("http://localhost:8000/employee", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((res) =>{
+            setEmployees(res.result)   
+        })
+        .catch(err=>console.log(err));;
+  }, []);
+
   return (
     <div className="dashboard">
       <h1>Employees</h1>
-
-      <div className='tableContainer'>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Month</th>
-          <th>Year</th>
-          <th>Total Working Days</th>
-          <th>Total Leaves Taken</th>
-          <th>Overtime</th>
-          <th>Total Salary Made</th>
-        </tr>
-        <tr>
-          <td>Anom</td>
-          <td>19</td>
-          <td>Male</td>
-        </tr>
-        <tr>
-          <td>Megha</td>
-          <td>19</td>
-          <td>Female</td>
-        </tr>
-        <tr>
-          <td>Subham</td>
-          <td>25</td>
-          <td>Male</td>
-        </tr>
-      </table>
-</div>
+      <div className="salaryForm">
+        <button onClick={() => navigate("/employee-form")}>Add Employee</button>
+      </div>
+      <div className="tableContainer">
+        <table>
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>Address</th>
+              <th>Base Salary</th>
+            </tr>
+            {employees &&
+              employees.map((emp) => {
+                return (
+                  <tr key={emp.id}>
+                    <td>{emp.name}</td>
+                    <td>{emp.email}</td>
+                    <td>{emp.mobile}</td>
+                    <td>{emp.address}</td>
+                    <td>{emp.base_salary}</td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Employee
+export default Employee;

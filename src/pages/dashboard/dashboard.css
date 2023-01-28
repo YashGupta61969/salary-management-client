@@ -2,6 +2,7 @@
     margin: 0 2rem;
     margin-top: 1rem;
     width: 100%;
+    position: relative;
 }
 
 .dashboard > h1{
