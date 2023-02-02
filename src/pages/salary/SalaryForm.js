@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./salaryForm.css";
 
 function SalaryForm() {
   const { token } = useSelector((state) => state.admin.admin);
+  const navigate = useNavigate()
 
   const [employeeId, setEmployeeId] = useState(0);
   const [selectedEmployee, setSelectedEmployee] = useState("");
@@ -15,7 +17,6 @@ function SalaryForm() {
   const [totalLeavesTaken, setTotalLeavestaken] = useState(0);
   const [overtime, setOvertime] = useState(0);
   const [totalSalaryMade, setTotalSalaryMade] = useState(0);
-  const [isSalaryCalculated, setIsSalaryCalculated] = useState(false);
 
   useEffect(() => {
     token &&
@@ -41,21 +42,9 @@ function SalaryForm() {
       })
         .then((res) => res.json())
         .then((res) => {
-          const _selectedEmployee = employees.find(
-            (emp) => emp.id === Number(employeeId)
-          );
-
           setSelectedEmployeeObj(
             employees.find((emp) => emp.id === Number(employeeId))
           );
-          const _isSalaryCalculated = res.result.filter((r) => {
-            return r.Employee.id === _selectedEmployee.id;
-          });
-          if (_isSalaryCalculated.length > 0) {
-            setIsSalaryCalculated(true);
-          } else {
-            setIsSalaryCalculated(false);
-          }
         })
         .catch((err) => console.log(err));
   }, [employeeId]);
@@ -101,6 +90,7 @@ function SalaryForm() {
           .then((res) => {
             if (res.status === "success") {
               alert(res.message);
+              navigate('/salaries')
             } else {
               alert(res.message);
             }

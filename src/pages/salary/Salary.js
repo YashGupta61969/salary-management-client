@@ -10,12 +10,6 @@ function Salary() {
   const page = new URLSearchParams(useLocation().search).get('page')
   const [salary, setSalary] = useState([]);
   const [areMorePages, setAreMorePages] = useState(false)
-  // const [itemOffset, setItemOffset] = useState(0);
-  // const endOffset = itemOffset + 10;
-
-  // const currentItems = salary.slice(itemOffset, endOffset);
-  // const pageCount = Math.ceil(salary.length / 10);
-
 
   useEffect(() => {
     token &&

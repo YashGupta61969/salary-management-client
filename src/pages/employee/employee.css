@@ -1,13 +1,16 @@
-table {
-    margin-top: 3rem;
-    width: 800px;
-    height: 200px;
-  }
-    
-  th {
-    border-bottom: 1px solid black;
-  }
-    
-  td {
-    text-align: center;
-  }
+.actionBtn{
+  padding: 5px 1rem;
+  border-radius: 6px;
+  border: 0;
+  cursor: pointer;
+}
+
+.edit{
+  background: rgb(126, 255, 143);
+}
+
+.delete{
+  margin-left: 1rem;
+  background: rgb(253, 87, 87);
+  color: white;
+}
